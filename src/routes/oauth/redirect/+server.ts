@@ -19,10 +19,10 @@ export function GET({ cookies }) {
 
 	return redirect(
 		302,
-		oidcClient.authorizationUrl({
+		oidcClient?.authorizationUrl({
 			scope: PUBLIC_OIDC_SCOPES,
 			code_challenge,
 			code_challenge_method: 'S256'
-		})
+		}) || '/'
 	);
 }
